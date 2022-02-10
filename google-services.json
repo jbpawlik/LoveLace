@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "424958219778",
+    "project_id": "lovelace-32976",
+    "storage_bucket": "lovelace-32976.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424958219778:android:76822b027cbd31cc06391b",
+        "android_client_info": {
+          "package_name": "com.android.lovelace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "424958219778-4rsgsgu9b3lr4r9ftmb7j4gu98u2bfpo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL24gO1fM0CPmNcsqtJwfiRGaoEJ0crbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424958219778-4rsgsgu9b3lr4r9ftmb7j4gu98u2bfpo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
