@@ -8,9 +8,12 @@ module.exports = {
     jest: true,
     node: true,
   },
+  parserOptions: {
+    sourceType: module,
+  },
   rules: {
     'jsx-a11y/href-no-hash': ['off'],
-    // 'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
+    // 'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.tsx', '.jsx'] }],
     // my customs
     'no-unused-vars': 'warn',
     'no-console': ['warn', { allow: ['error'] }],
