@@ -4,7 +4,7 @@ import Logo from '../Components/Logo'
 import Header from '../Components/Header'
 import Button from '../Components/Button'
 import Paragraph from '../Components/Paragraph'
-import { RootStackParamList } from '../../App';
+import { RootStackParamList } from '../Components/RootStackParamList';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 type Props = NativeStackScreenProps<RootStackParamList>;

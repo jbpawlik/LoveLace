@@ -6,7 +6,7 @@ import Header from '../Components/Header'
 import TextInput from '../Components/TextInput'
 import Button from '../Components/Button'
 import { emailValidator } from '../helpers/emailValidator'
-import { RootStackParamList } from '../../App';
+import { RootStackParamList } from '../Components/RootStackParamList';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 type Props = NativeStackScreenProps<RootStackParamList>;

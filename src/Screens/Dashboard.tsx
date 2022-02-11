@@ -4,7 +4,7 @@ import Logo from '../Components/Logo'
 import Header from '../Components/Header'
 import Paragraph from '../Components/Paragraph'
 import Button from '../Components/Button'
-import { RootStackParamList } from '../../App';
+import { RootStackParamList } from '../Components/RootStackParamList';
 
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -15,12 +15,12 @@ export default function Dashboard({ navigation }: Props) {
   return (
     <Background>
       <Logo />
-      <Header>Let’s start</Header>
+      {/* <Header>Let’s start</Header>
       <Paragraph>
         Your amazing app starts here. Open you favorite code editor and start
         editing this project.
-      </Paragraph>
-      <Button
+      </Paragraph> */}
+      {/* <Button
         mode="outlined"
         style={{flex: 1}}
         onPress={() =>
@@ -31,7 +31,7 @@ export default function Dashboard({ navigation }: Props) {
         }
       >
         Logout
-      </Button>
+      </Button> */}
     </Background>
   )
 }

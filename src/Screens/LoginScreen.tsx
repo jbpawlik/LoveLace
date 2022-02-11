@@ -11,7 +11,7 @@ import { theme } from '../core/theme'
 import { emailValidator } from '../helpers/emailValidator'
 import { passwordValidator } from '../helpers/passwordValidator'
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../App';
+import { RootStackParamList } from '../Components/RootStackParamList';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
 
@@ -35,9 +35,9 @@ export default function LoginScreen({ navigation }: Props) {
 
   return (
     <Background>
-      <BackButton goBack={navigation.goBack} />
+      {/* <BackButton goBack={navigation.goBack} /> */}
+      {/* <Header>LoveLace</Header> */}
       <Logo />
-      <Header>Welcome back.</Header>
       <TextInput
         label="Email"
         returnKeyType="next"
