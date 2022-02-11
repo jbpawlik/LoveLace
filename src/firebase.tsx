@@ -1,6 +1,5 @@
-import * as firebase from "firebase";
-import "@firebase/auth";
-import "@firebase/firestore";
+import * as firebaseDefault from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 import {
   FIREBASE_API_KEY,
@@ -20,9 +19,6 @@ const firebaseConfig = {
   appId: FIREBASE_APP_ID,
 };
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
-firebase.firestore();
+export const firebase = firebaseDefault.initializeApp(firebaseConfig);
 
-export default firebase; 
+export const db = getFirestore(firebase);
