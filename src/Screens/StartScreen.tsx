@@ -1,10 +1,10 @@
 import React from 'react'
-import Background from '../Components/Background'
-import Logo from '../Components/Logo'
-import Header from '../Components/Header'
-import Button from '../Components/Button'
-import Paragraph from '../Components/Paragraph'
-import { RootStackParamList } from '../Components/RootStackParamList';
+import Background from '../components/Background'
+import Logo from '../components/Logo'
+import Header from '../components/Header'
+import Button from '../components/Button'
+import Paragraph from '../components/Paragraph'
+import { RootStackParamList } from '../components/RootStackParamList';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 type Props = NativeStackScreenProps<RootStackParamList>;

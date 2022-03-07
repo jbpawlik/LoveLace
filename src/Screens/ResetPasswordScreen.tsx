@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import Background from '../Components/Background'
-import BackButton from '../Components/BackButton'
-import Logo from '../Components/Logo'
-import Header from '../Components/Header'
-import TextInput from '../Components/TextInput'
-import Button from '../Components/Button'
+import Background from '../components/Background'
+import BackButton from '../components/BackButton'
+import Logo from '../components/Logo'
+import Header from '../components/Header'
+import TextInput from '../components/TextInput'
+import Button from '../components/Button'
 import { emailValidator } from '../helpers/emailValidator'
-import { RootStackParamList } from '../Components/RootStackParamList';
+import { RootStackParamList } from '../components/RootStackParamList';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 type Props = NativeStackScreenProps<RootStackParamList>;

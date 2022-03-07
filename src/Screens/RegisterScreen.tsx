@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { Text } from 'react-native-paper'
-import Background from '../Components/Background'
-import Logo from '../Components/Logo'
-import Header from '../Components/Header'
-import Button from '../Components/Button'
-import TextInput from '../Components/TextInput'
-import BackButton from '../Components/BackButton'
+import Background from '../components/Background'
+import Logo from '../components/Logo'
+import Header from '../components/Header'
+import Button from '../components/Button'
+import TextInput from '../components/TextInput'
+import BackButton from '../components/BackButton'
 import { theme } from '../core/theme'
 import { emailValidator } from '../helpers/emailValidator'
 import { passwordValidator } from '../helpers/passwordValidator'
 import { nameValidator } from '../helpers/nameValidator'
-import { RootStackParamList } from '../Components/RootStackParamList';
+import { RootStackParamList } from '../components/RootStackParamList';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { auth } from '../firebase'
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 type Props = NativeStackScreenProps<RootStackParamList>;
 
@@ -20,6 +22,18 @@ export default function RegisterScreen({ navigation }: Props) {
   const [name, setName] = useState({ value: '', error: '' })
   const [email, setEmail] = useState({ value: '', error: '' })
   const [password, setPassword] = useState({ value: '', error: '' })
+
+  const createAccount = async () => {
+    try {
+      await createUserWithEmailAndPassword(
+        auth,
+        email.value,
+        password.value
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const onSignUpPressed = () => {
     const nameError = nameValidator(name.value)
@@ -30,11 +44,13 @@ export default function RegisterScreen({ navigation }: Props) {
       setEmail({ ...email, error: emailError })
       setPassword({ ...password, error: passwordError })
       return
+    } else {
+      createAccount()
     }
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Dashboard' }],
-    })
+    // navigation.reset({
+    //   index: 0,
+    //   routes: [{ name: 'Dashboard' }],
+    // })
   }
 
   return (

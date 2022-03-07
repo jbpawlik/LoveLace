@@ -1,23 +1,38 @@
 import React, { useState } from 'react'
 import { TouchableOpacity, StyleSheet, View } from 'react-native'
 import { Text } from 'react-native-paper'
-import Background from '../Components/Background'
-import Logo from '../Components/Logo'
-import Header from '../Components/Header'
-import Button from '../Components/Button'
-import TextInput from '../Components/TextInput'
-import BackButton from '../Components/BackButton'
+import Background from '../components/Background'
+import Logo from '../components/Logo'
+import Header from '../components/Header'
+import Button from '../components/Button'
+import TextInput from '../components/TextInput'
+import BackButton from '../components/BackButton'
 import { theme } from '../core/theme'
 import { emailValidator } from '../helpers/emailValidator'
 import { passwordValidator } from '../helpers/passwordValidator'
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../Components/RootStackParamList';
+import { RootStackParamList } from '../components/RootStackParamList';
+import { firebase } from '../firebase'
+import { auth } from '../firebase'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 
 type Props = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
 
 export default function LoginScreen({ navigation }: Props) {
   const [email, setEmail] = useState({ value: '', error: '' })
   const [password, setPassword] = useState({ value: '', error: '' })
+
+  const loginToAccount = async () => {
+    try {
+      await signInWithEmailAndPassword(
+        auth,
+        email.value,
+        password.value
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const onLoginPressed = () => {
     const emailError = emailValidator(email.value)
@@ -26,11 +41,13 @@ export default function LoginScreen({ navigation }: Props) {
       setEmail({ ...email, error: emailError })
       setPassword({ ...password, error: passwordError })
       return
+    } else {
+      loginToAccount()
     }
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Dashboard'}],
-    })
+    // navigation.reset({
+    //   index: 0,
+    //   routes: [{ name: 'Dashboard'}],
+    // })
   }
 
   return (
@@ -65,7 +82,7 @@ export default function LoginScreen({ navigation }: Props) {
           // })}
           onPress={() => navigation.navigate('ResetPasswordScreen', {userId: '???', screen: 'ResetPasswordScreen', params: undefined})}
         >
-          <Text 
+          <Text
             style={styles.forgot} 
             onPressIn={undefined} 
             onPressOut={undefined} 
