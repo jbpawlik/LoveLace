@@ -9,5 +9,10 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strict": true,
-  }
+  },
+  "module": "commonjs",
+  "exclude": ["node_modules", "node_modules/**/*"],
+  "types": [
+    "firebase"
+  ],
 }
