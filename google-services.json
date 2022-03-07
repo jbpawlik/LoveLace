@@ -29,6 +29,13 @@
             {
               "client_id": "424958219778-4rsgsgu9b3lr4r9ftmb7j4gu98u2bfpo.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "424958219778-hnmt0dfiv4aefbt751u5noq4ib7oneuo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.android.lovelace"
+              }
             }
           ]
         }
