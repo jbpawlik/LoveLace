@@ -1,13 +1,20 @@
+import { useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-native-paper'
+import { AuthProvider } from './src/context/AuthProvider';
+import { AuthContext } from './src/context/AuthContext';
 import { theme } from './src/core/theme'
-import StackNavigator from './src/Components/StackNavigator'
+import StackNavigator from './src/components/StackNavigator'
 
 export default function App() {
+  const user = useContext(AuthContext)
+  
   return (
-    <Provider theme={theme}>
-      <StackNavigator />
-    </Provider>
+    <AuthProvider>
+      <Provider theme={theme}>
+        <StackNavigator />
+      </Provider>
+    </AuthProvider>
   );
 }
 
