@@ -8,7 +8,9 @@ import {
   RegisterScreen,
   ResetPasswordScreen,
   Dashboard,
-} from '../Screens'
+} from '../screens'
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 const Stack = createStackNavigator();
 
@@ -21,21 +23,39 @@ declare global {
 }
 
 export default function StackNavigator() {
+
+  const user = useContext(AuthContext)
+
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="LoginScreen"
         screenOptions={{
           headerShown: false,
       }}>
-        <Stack.Screen name="StartScreen" component={StartScreen} />
-        <Stack.Screen name="LoginScreen" component={LoginScreen} />
-        <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-        <Stack.Screen name="Dashboard" component={Dashboard} />
-        <Stack.Screen
-          name="ResetPasswordScreen"
-          component={ResetPasswordScreen}
-        />
+        { user ? (
+          <>
+          <Stack.Screen name="Dashboard" component={Dashboard} />
+          {/* <Stack.Screen name="StartScreen" component={StartScreen} />
+          <Stack.Screen name="LoginScreen" component={LoginScreen} />
+          <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+          <Stack.Screen
+            name="ResetPasswordScreen"
+            component={ResetPasswordScreen}
+          /> */}
+          </>
+        ) : (
+          <>
+          <Stack.Screen name="LoginScreen" component={LoginScreen} />
+          <Stack.Screen name="StartScreen" component={StartScreen} />
+          <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+          <Stack.Screen
+            name="ResetPasswordScreen"
+            component={ResetPasswordScreen}
+          />
+          </>
+        )
+      }
+
       </Stack.Navigator>
     </NavigationContainer>
   );
