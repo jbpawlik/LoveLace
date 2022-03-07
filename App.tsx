@@ -5,6 +5,11 @@ import { AuthProvider } from './src/context/AuthProvider';
 import { AuthContext } from './src/context/AuthContext';
 import { theme } from './src/core/theme'
 import StackNavigator from './src/components/StackNavigator'
+import { LogBox, StatusBar } from "react-native";
+
+LogBox.ignoreLogs([
+  "AsyncStorage has been extracted from react-native core and will be removed in a future release."
+ ]);
 
 export default function App() {
   const user = useContext(AuthContext)
@@ -12,6 +17,7 @@ export default function App() {
   return (
     <AuthProvider>
       <Provider theme={theme}>
+        <StatusBar hidden />
         <StackNavigator />
       </Provider>
     </AuthProvider>
